@@ -1,24 +1,24 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
         vocales = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-        listaPalabra =  list(s)
-        listaVocales = []
-        for i in listaPalabra:
-            if(i in vocales):
-                listaVocales.append(i)
+        lista_palabra =  list(s)
+        lista_vocales = []
+        for i in lista_palabra:
+            if i in vocales:
+                lista_vocales.append(i)
 
-        lenVocales = len(listaVocales)
-        lenVocales -= 1
+        len_vocales = len(lista_vocales)
+        len_vocales -= 1
         cadena = ""
         x = 0
 
-        for i in listaPalabra:
+        for i in lista_palabra:
 
-            if(i in vocales):
-                listaPalabra[x] = listaVocales[lenVocales]
-                lenVocales -= 1
+            if i in vocales:
+                lista_palabra[x] = lista_vocales[len_vocales]
+                len_vocales -= 1
 
-            cadena += listaPalabra[x]
+            cadena += lista_palabra[x]
             x += 1
-    
-        return(cadena)  
+        return cadena
+# End-of-file (EOF)
