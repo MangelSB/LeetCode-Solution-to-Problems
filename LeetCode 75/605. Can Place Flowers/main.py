@@ -5,44 +5,40 @@ class Solution:
 
         if x == 0:
             return True
-        elif (l == 1 and x == 1 and flowerbed[0] == 1):
+
+        if (l == 1 and x == 1 and flowerbed[0] == 1):
             return False
-        else:
 
-            for i in range(l):
-                if(x == 0):
-                    return True
-                
+        for i in range(l):
+            if x == 0:
+                return True
+
+            if i not in (0, l - 1):
+
+                if ((flowerbed[i - 1] == 0) and (flowerbed[i] == 0) and (flowerbed[i + 1] == 0)):
+
+                    flowerbed[i] = 1
+                    x -= 1
+
+            elif i == 0:
+
+                if l != 1:
+
+                    if ((flowerbed[i] == 0) and (flowerbed[i + 1] == 0)):
+
+                        flowerbed[i] = 1
+                        x = x - 1
+
                 else:
+                    return bool(x == 1)
 
-                    if ((i != 0) and (i != (l - 1))):
+            else:
+                if (flowerbed[i - 1] == 0) and (flowerbed[i] == 0):
 
-                        if ((flowerbed[i - 1] == 0) and (flowerbed[i] == 0) and (flowerbed[i + 1] == 0)):
-
-                            flowerbed[i] = 1
-                            x = x - 1
-
-                    elif i == 0:
-                        if(l != 1):
-                            
-                            if ((flowerbed[i] == 0) and (flowerbed[i + 1] == 0)):
-
-                                flowerbed[i] = 1
-                                x = x - 1
-                        else:
-                            if(x == 1):
-                                return True
-                            else:
-                                return False
-
-                    else:
-                        if (flowerbed[i - 1] == 0) and (flowerbed[i] == 0):
-
-                            flowerbed[i] = 1
-                            x = x - 1
+                    flowerbed[i] = 1
+                    x = x - 1
 
         if x != 0 :
             return False
 
-        else:
-            return True
+        return True
